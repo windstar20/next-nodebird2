@@ -4,6 +4,11 @@ import Link from 'next/link';
 import { Menu, Input, Row, Col } from 'antd';
 import UserProfile from "./UserProfile";
 import LoginForm from "./LoginForm";
+import styled from 'styled-components';
+
+const SearchInput = styled(Input.Search)`
+    vertical-align: middle;
+`;
 
 const AppLayout = ({ children }) => {
 
@@ -21,7 +26,7 @@ const AppLayout = ({ children }) => {
         </Menu.Item>
 
         <Menu.Item>
-            <Input.Search enterButton style={{verticalAlign: 'middle'}}/>
+            <SearchInput enterButton />
         </Menu.Item>
 
         <Menu.Item>
@@ -29,8 +34,8 @@ const AppLayout = ({ children }) => {
         </Menu.Item>
         </Menu>
         <Row gutter={8}>
-            <Col xs={24} md={6} > 왼쪽메뉴
-                {isLoggedIn ? <UserProfile /> : <LoginForm />}
+            <Col xs={24} md={6} >
+                {isLoggedIn ? <UserProfile setIsLoggedIn={setIsLoggedIn} /> : <LoginForm setIsLoggedIn={setIsLoggedIn} />}
             </Col>
             <Col xs={24} md={12} >
                 {children}
