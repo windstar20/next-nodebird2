@@ -15,7 +15,9 @@ const AppLayout = ({ children }) => {
 
     // const [isLoggedIn, setIsLoggedIn] = useState(false);
     //리듀서에 있는 initialState를 가져옴. isLoggedIn이 바뀌면 리렌더됨.
-    const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+    // const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+    // 위 코드 동일
+    const {isLoggedIn} = useSelector((state) => state.user);
   return (
       <div>
         {/*<div>공통메뉴</div>*/}
