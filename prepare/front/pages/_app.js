@@ -4,7 +4,11 @@ import 'antd/dist/antd.css';
 import Head from "next/Head";
 //공통 CSS인 antd CSS를 넣음.
 
+import wrapper from "../store/configureStore";
+
 const App = ({Component}) => {
+    //next-redux-wrapper는 provider 감싸줄 필요 없다.
+
     return (
         <>
             <Head>
@@ -21,4 +25,4 @@ App.propTypes = {
     Component: PropTypes.elementType.isRequired
 }
 
-export default App;
+export default wrapper.withRedux(App);
