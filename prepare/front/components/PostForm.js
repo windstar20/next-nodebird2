@@ -37,7 +37,9 @@ const PostForm = () => {
                 value={text}
                 onChange={onChangeText}
                 maxLength={140}
-                placeholder="어떤 입력을" />
+                placeholder="어떤 입력을"
+                style={{marginBottom: 10}}
+            />
             <div>
                 <input type="file" multiple hidden ref={imageInput}/>
                 <Button onClick={onClickImageUpload}>이미지 업로드</Button>

@@ -5,14 +5,15 @@ export const initialState = {
         User: {
             id: 1,
             nickname: 'chocho',
+            avatarImage: 'https://joeschmoe.io/api/v1/random'
         },
         content: '처음글 #해시태그 #익스프레스',
         Images: [{
-            src: '/Users/james/Downloads/signup_coupon_201116.jpg',
+            src: 'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
         }, {
-            src: '/Users/james/Downloads/signup_coupon_201116.jpg',
+            src: 'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
         }, {
-            src: '/Users/james/Downloads/signup_coupon_201116.jpg',
+            src: 'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
         }],
         Comments: [{
             User: {
@@ -35,7 +36,9 @@ const dummyPost = {
     content: '더미데이터입니다.',
     User: {
         id: 1,
-        nickname: '흰구름'
+        nickname: '흰구름',
+        avatarImage: 'https://joeschmoe.io/api/v1/random'
+
     },
     Images: [],
     Comments: [],

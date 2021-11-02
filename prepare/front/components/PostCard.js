@@ -1,9 +1,10 @@
 import React, {useCallback, useState} from 'react';
-import {Avatar, Button, Card, Popover} from "antd";
+import {Avatar, Button, Card, Comment, List, Popover} from "antd";
 import {EllipsisOutlined, HeartOutlined, HeartTwoTone, MessageOutlined, RetweetOutlined} from "@ant-design/icons";
 import {useSelector} from "react-redux";
 import PropTypes from 'prop-types';
 import PostImages from "./PostImages";
+import CommentForm from "./CommentForm";
 
 const PostCard = ({ post }) => {
     const id = useSelector(state => state.user.me?.id);
@@ -50,14 +51,28 @@ const PostCard = ({ post }) => {
                 ]}
             >
                 <Card.Meta
-                    avatar={<Avatar>{ post.User.nickname[0] }</Avatar>}
+                    avatar={<Avatar src={post.User.avatarImage}>{ post.User.nickname[0] }</Avatar>}
                     title={post.User.nickname}
                     description={post.content}
                 />
             </Card>
             {commentFormOpened && (
                 <div>
-                    댓글 부분
+                    <CommentForm post={post} />
+                    <List
+                        header={`${post.Comments.length}개의 댓글`}
+                        itemLayout="horizontal"
+                        dataSource={post.Comments}
+                        renderItem={(item) => (
+                            <li>
+                                <Comment
+                                    author={item.User.nickname}
+                                    avatar={<Avatar src="https://joeschmoe.io/api/v1/random">{item.User.nickname[0]}</Avatar>}
+                                    content={item.content}
+                                />
+                            </li>
+                        )}
+                    />
                 </div>
             )}
         </div>
