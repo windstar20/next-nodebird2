@@ -7,16 +7,41 @@ export const initialState = {
 }
 
 //액션 크리에이터 함수 action creator
-export const loginAction = (data) => {
+export const loginRequestAction = (data) => {
     return {
-        type: 'LOG_IN',
+        type: 'LOG_IN_REQUEST',
+        data,
+    }
+}
+export const loginSuccessAction = (data) => {
+    return {
+        type: 'LOG_IN_SUCCESS',
+        data,
+    }
+}
+export const loginFailureAction = (data) => {
+    return {
+        type: 'LOG_IN_FAILURE',
         data,
     }
 }
 
-export const logoutAction = () => {
+export const logoutRequestAction = () => {
     return {
-        type: 'LOG_OUT',
+        type: 'LOG_OUT_REQUEST',
+    }
+}
+
+export const loginSuccessAction = (data) => {
+    return {
+        type: 'LOG_OUT_SUCCESS',
+        data,
+    }
+}
+export const loginFailureAction = (data) => {
+    return {
+        type: 'LOG_OUT_FAILURE',
+        data,
     }
 }
 
