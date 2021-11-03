@@ -7,6 +7,7 @@ import PostImages from './PostImages';
 import CommentForm from './CommentForm';
 import PostCardContent from './PostCardContent';
 import { REMOVE_POST_REQUEST } from '../reducers/post';
+import FollowButton from "./FollowButton";
 
 // eslint-disable-next-line react/prop-types
 const PostCard = ({ post }) => {
@@ -62,9 +63,15 @@ const PostCard = ({ post }) => {
                         <EllipsisOutlined />
                     </Popover>,
                 ]}
+                extra={id && <FollowButton post={post} />}
             >
+                {/*<Card.Meta*/}
+                {/*    avatar={<Avatar src={post.User.avatarImage}>{ post.User.nickname[0] }</Avatar>}*/}
+                {/*    title={post.User.nickname}*/}
+                {/*    description={<PostCardContent postData={post.content} />}*/}
+                {/*/>*/}
                 <Card.Meta
-                    avatar={<Avatar src={post.User.avatarImage}>{ post.User.nickname[0] }</Avatar>}
+                    avatar={<Avatar>{post.User.nickname[0]}</Avatar>}
                     title={post.User.nickname}
                     description={<PostCardContent postData={post.content} />}
                 />
