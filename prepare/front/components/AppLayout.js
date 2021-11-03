@@ -31,7 +31,7 @@ const AppLayout = ({ children }) => {
     //리듀서에 있는 initialState를 가져옴. isLoggedIn이 바뀌면 리렌더됨.
     // const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
     // 위 코드 동일
-    const {isLoggedIn} = useSelector((state) => state.user);
+    const {me} = useSelector((state) => state.user);
   return (
       <div>
           <Global />
@@ -55,7 +55,7 @@ const AppLayout = ({ children }) => {
         <Row gutter={8}>
             <Col xs={24} md={6} >
                 {/*{isLoggedIn ? <UserProfile setIsLoggedIn={setIsLoggedIn} /> : <LoginForm setIsLoggedIn={setIsLoggedIn} />}*/}
-                {isLoggedIn ? <UserProfile/> : <LoginForm/>}
+                {me ? <UserProfile/> : <LoginForm/>}
             </Col>
             <Col xs={24} md={12} >
                 {children}

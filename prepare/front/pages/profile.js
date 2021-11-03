@@ -1,16 +1,16 @@
 import React from 'react';
-import Head from "next/head";
+import Head from 'next/head';
 import PropTypes from 'prop-types';
-import AppLayout from "../components/AppLayout";
-import NicknameEditForm from "../components/NicknameEditForm";
-import FollowList from "../components/FollowList";
-import FollowerList from "../components/FollowerList";
+import { useSelector } from 'react-redux';
+import AppLayout from '../components/AppLayout';
+import NicknameEditForm from '../components/NicknameEditForm';
+import FollowList from '../components/FollowList';
+import FollowerList from '../components/FollowerList';
 
 const Profile = () => {
-
-    const followerList = [{nickname: '제로'},{nickname: '하나'},{nickname: '둘'}]
-    const followingList = [{nickname: '제로'},{nickname: '하나'},{nickname: '둘'}]
-
+    // const followerList = [{nickname: '제로'},{nickname: '하나'},{nickname: '둘'}]
+    // const followingList = [{nickname: '제로'},{nickname: '하나'},{nickname: '둘'}]
+    const { me } = useSelector((state) => state.user);
     return (
         <>
             <Head>
@@ -18,16 +18,16 @@ const Profile = () => {
             </Head>
             <AppLayout>
                 <NicknameEditForm />
-                <FollowList header="팔로잉 목록" data={followingList}/>
-                <FollowerList header="팔로워 목록" data={followerList}/>
+                <FollowList header="팔로잉 목록" data={me.Followings} />
+                <FollowerList header="팔로워 목록" data={me.Followers} />
             </AppLayout>
         </>
-    )
-}
+    );
+};
 
 FollowList.propTypes = {
     header: PropTypes.string.isRequired,
-    data: PropTypes.array.isRequired
+    data: PropTypes.array.isRequired,
 };
 
 export default Profile;

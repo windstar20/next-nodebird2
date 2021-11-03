@@ -7,7 +7,7 @@ const PostCardContent = ({ postData }) => // 첫 번째 게시글 #해시태 #�
     // eslint-disable-next-line implicit-arrow-linebreak
     (
         <div>
-            {postData.split(/(#[^\s#]+)/g).map((v,i) => {
+            {postData.split(/(#[^\s#]+)/g).map((v, i) => {
                 if (v.match(/(#[^\s#]+)/)) {
                     return (
                         <Link
